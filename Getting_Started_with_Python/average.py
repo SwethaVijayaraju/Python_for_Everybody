@@ -1,19 +1,15 @@
 count = 0
 total = 0
-average = 0
 while True:
     num = input("Enter number:")
+    if num == "done":
+        print("Done")
+        break
     try:
         f_num = float(num)
     except:
-        if num == "done":
-            print("Done")
-            print(total, count, average)
-            exit()
-        else:
-            print("Invalid input")
-            continue
-
+        print("Invalid input")
+        continue
     count = count + 1
     total = total + f_num
-    average = total / count
+print(total, count, total / count)
