@@ -17,7 +17,7 @@ except:
     print("Error - Give a valid score")
     quit()
 try:
-    if fscore < 0 or fscore > 1:
+    if not 0.0 <= fscore <= 1.0:
         raise Exception()
 except:
     print("Given score is not within the range")
