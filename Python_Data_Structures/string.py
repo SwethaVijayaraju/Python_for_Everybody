@@ -3,7 +3,12 @@
 # text = "X-DSPAM-Confidence:    0.8475";
 
 text = input("Enter text:")
-zero_pos = text.find("0")
-str_num = text[zero_pos:]
-float_num = float(str_num)
+colon_pos = text.find(":")
+str_num = text[colon_pos + 1:]
+str_strip = str_num.strip()
+try:
+    float_num = float(str_strip)
+except:
+    print("Error - given input has no numbers or has invalid numbers")
+    exit()
 print(float_num)
