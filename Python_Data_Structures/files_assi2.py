@@ -29,5 +29,9 @@ avg_list = list()
 for line in fhand:
     if line.startswith("X-DSPAM-Confidence:"):
         avg_list.append(float_extract(line))
-average = sum(avg_list) / len(avg_list)
+try:
+    average = sum(avg_list) / len(avg_list)
+except:
+    print("None of the lines start with 'X-DSPAM-Confidence:'")
+    exit()
 print("Average spam confidence:", average)
