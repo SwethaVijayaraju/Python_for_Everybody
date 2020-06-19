@@ -9,7 +9,6 @@
 # ans : Average spam confidence: 0.750718518519
 
 fname = input("Enter file name: ")
-
 try:
     fhand = open(fname)
 except:

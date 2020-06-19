@@ -13,20 +13,15 @@ try:
 except:
     print("File cannot be opened")
     exit()
-
-mail_list = list()
 mail_dict = dict()
 for line in fhand:
     if line.startswith('From '):
         words = line.split()
-        mail_list.append(words[1])
-for mail_id in mail_list:
-    mail_dict[mail_id] = mail_dict.get(mail_id, 0) + 1
-
+        mail_dict[words[1]] = mail_dict.get(words[1], 0) + 1
 reg_sender = None
-sender_count = None
+sender_count = 0
 for key, value in mail_dict.items():
-    if (sender_count is None) or (sender_count < value):
+    if sender_count < value:
         sender_count = value
         reg_sender = key
 print(reg_sender, sender_count)
