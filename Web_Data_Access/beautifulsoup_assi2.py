@@ -59,15 +59,17 @@ except:
 i = 0
 names = list()
 print(url)
+names.append(re.findall('_by_(\S+)?\.', url)[0])
 while True:
-    names.append(re.findall('_by_(\S+)?\.', url)[0])
     i = i + 1
     if i > count:
         break
     data = urllib.request.urlopen(url, context=ctx).read()
     soup = BeautifulSoup(data, 'html.parser')
     tags = soup('a')
-    url = tags[position - 1].get('href', None)
+    tag = tags[position - 1]
+    names.append(tag.text)
+    url = tag.get('href', None)
     print(url)
 
 print("Sequence of names: ", names)
